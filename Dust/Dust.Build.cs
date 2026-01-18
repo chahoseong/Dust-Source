@@ -7,10 +7,25 @@ public class Dust : ModuleRules
 	public Dust(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+		
+		PublicIncludePaths.AddRange([
+			"Dust"
+		]);
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput" });
+		PublicDependencyModuleNames.AddRange([
+				"Core", 
+				"CoreUObject", 
+				"Engine", 
+				"GameplayTags",
+				"GameplayTasks",
+				"GameplayAbilities",
+				"ModularGameplay"
+		]);
 
-		PrivateDependencyModuleNames.AddRange(new string[] {  });
+		PrivateDependencyModuleNames.AddRange([
+			"InputCore", 
+			"EnhancedInput"
+		]);
 
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });

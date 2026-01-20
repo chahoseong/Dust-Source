@@ -1,36 +1,32 @@
-﻿// Fill out your copyright notice in the Description page of Project Settings.
+﻿#include "Input/DustInputComponent.h"
 
-
-#include "DustInputComponent.h"
-
-
-// Sets default values for this component's properties
-UDustInputComponent::UDustInputComponent()
+UDustInputComponent::UDustInputComponent(const FObjectInitializer& ObjectInitializer)
 {
-	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
-	// off to improve performance if you don't need them.
-	PrimaryComponentTick.bCanEverTick = true;
-
-	// ...
 }
 
-
-// Called when the game starts
-void UDustInputComponent::BeginPlay()
+void UDustInputComponent::AddInputMappings(const UDustInputConfig* Config,
+	UEnhancedInputLocalPlayerSubsystem* Subsystem) const
 {
-	Super::BeginPlay();
-
-	// ...
+	check(Config);
+	check(Subsystem);
 	
+	// Here you can handle any custom logic to add something from your input config if required
 }
 
-
-// Called every frame
-void UDustInputComponent::TickComponent(float DeltaTime, ELevelTick TickType,
-                                        FActorComponentTickFunction* ThisTickFunction)
+void UDustInputComponent::RemoveInputMappings(const UDustInputConfig* Config,
+	UEnhancedInputLocalPlayerSubsystem* Subsystem) const
 {
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-	// ...
+	check(Config);
+	check(Subsystem);
+	
+	// Here you can handle any custom logic to remove input mappings that you may have added above
 }
 
+void UDustInputComponent::RemoveBindings(TArray<uint32>& BindHandles)
+{
+	for (uint32 Handle : BindHandles)
+	{
+		RemoveBindingByHandle(Handle);
+	}
+	BindHandles.Reset();
+}

@@ -1,4 +1,11 @@
-﻿// Fill out your copyright notice in the Description page of Project Settings.
+﻿#include "Player/DustPlayerController.h"
 
+ADustPlayerController::ADustPlayerController(const FObjectInitializer& ObjectInitializer)
+	: Super(ObjectInitializer)
+{
+}
 
-#include "DustPlayerController.h"
+void ADustPlayerController::BeginPlay()
+{
+	Super::BeginPlay();
+}
